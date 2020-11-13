@@ -11,8 +11,9 @@
 </head>
 <h:body>
     <div>
+        <h:form>
         <p>X=</p>
-        <p:selectOneMenu id="x_chooser" value="#{mainFormBean.x_chooser}" style="width:125px">
+        <p:selectOneMenu id="x_chooser" value="#{mainFormBean.newCheck.x}" style="width:125px">
             <f:selectItem itemLabel="-5" itemValue="-5"/>
             <f:selectItem itemLabel="-4" itemValue="-4"/>
             <f:selectItem itemLabel="-3" itemValue="-3"/>
@@ -24,17 +25,18 @@
             <f:selectItem itemLabel="3" itemValue="3"/>
         </p:selectOneMenu>
         <p>Y=</p>
-        <h:inputText id="y_chooser" value="#{mainFormBean.y_chooser}" required="true">
+        <h:inputText id="y_chooser" value="#{mainFormBean.newCheck.y}" required="true">
             <f:convertNumber>
                 <f:validateDoubleRange minimum="-5" maximum="3"/>
             </f:convertNumber>
         </h:inputText>
         <p>R=</p>
         <h:panelGrid columns="1" style="margin-bottom: 10px">
-            <p:inputText id="r_chooser" value="#{mainFormBean.r_chooser}"/>
+            <p:inputText id="r_chooser" value="#{mainFormBean.newCheck.r}"/>
             <p:slider for="r_chooser" minValue="1" maxValue="4" step="0.25"/>
         </h:panelGrid>
-        <h:commandButton id="submit" action="#{mainFormBean.addNewCheck}" value="submit"/>
+        <p:commandButton id="submit" action="#{mainFormBean.submit()}" value="submit" update="resultTable"/>
+        </h:form>
     </div>
 </h:body>
 </html>

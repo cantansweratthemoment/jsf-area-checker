@@ -6,45 +6,39 @@ import java.io.Serializable;
 @ApplicationScoped
 
 public class MainFormBean implements Serializable {
-    private Double x_chooser;
-    private Double y_chooser;
-    private Double r_chooser;
+    private Check newCheck;
+    private CheckList checkList;//TODO это поле придумано фашистами
 
-    public Double getX_chooser() {
-        return x_chooser;
+    public CheckList getCheckList() {
+        return checkList;
     }
 
-    public void setX_chooser(Double x_chooser) {
-        this.x_chooser = x_chooser;
+    public void setCheckList(CheckList checkList) {
+        this.checkList = checkList;
     }
 
-    public Double getY_chooser() {
-        return y_chooser;
-    }
-
-    public void setY_chooser(Double y_chooser) {
-        this.y_chooser = y_chooser;
-    }
-
-    public Double getR_chooser() {
-        return r_chooser;
-    }
-
-    public void setR_chooser(Double r_chooser) {
-        this.r_chooser = r_chooser;
-    }
-
-    public MainFormBean(Double x_chooser, Double y_chooser, Double r_chooser) {
-        this.x_chooser = x_chooser;
-        this.y_chooser = y_chooser;
-        this.r_chooser = r_chooser;
+    public MainFormBean(Check newCheck, CheckList checkList) {
+        this.newCheck = newCheck;
+        this.checkList = checkList;
     }
 
     public MainFormBean() {
+        this.newCheck = new Check();
+        this.checkList = new CheckList();
     }
 
-    public void addNewCheck(){
-        Check check = new Check(x_chooser, y_chooser, r_chooser);
-       
+    public Check getNewCheck() {
+        return newCheck;
+    }
+
+    public void setNewCheck(Check newCheck) {
+        this.newCheck = newCheck;
+    }
+
+    public void submit() {
+        newCheck.checkHit();
+        Check checkForTheList = new Check(newCheck.getX(), newCheck.getY(), newCheck.getR(), newCheck.isResult());
+        this.checkList.add(checkForTheList);
+        System.out.println(this.checkList.getChecks().toString());
     }
 }

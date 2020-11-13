@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckList {
+public class CheckList implements Serializable {//TODO этот чел на время отсутсвия БД
     private List<Check> checks;
 
     public CheckList() {
@@ -15,5 +16,4 @@ public class CheckList {
     public void add(Check check) {
         checks.add(check);
     }
-
 }

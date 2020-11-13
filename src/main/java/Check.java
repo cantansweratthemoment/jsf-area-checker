@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 
 public class Check implements Serializable {
@@ -46,5 +45,22 @@ public class Check implements Serializable {
 
     public void setResult(boolean result) {
         this.result = result;
+    }
+
+    public Check(double x, double y, double r, boolean result) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.result = result;
+    }
+
+    public void checkHit() {
+        this.setResult(((x >= -r / 2) && (x <= 0) && (y >= 0) && (y <= r / 2) && (x * x + y * y <= r / 2 * r / 2)) ||
+                ((x >= -r) && (x <= 0) && (y >= -r) && (y <= 0)) ||
+                ((x >= 0) && (x <= r / 2) && (y >= -r / 2) && (y <= 0) && (y >= x - r / 2)));
+    }
+
+    public void validate() {
+        //TODO
     }
 }

@@ -1,0 +1,5 @@
+.body{
+    background-image: url(#{request.contextPath}/resources/images/wallpaper.JPEG);
+    background-size: 45%;
+    background-repeat: repeat;
+}

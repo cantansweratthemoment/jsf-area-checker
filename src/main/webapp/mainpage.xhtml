@@ -15,11 +15,15 @@
 
 <h:head>
     <ui:include src="templates/tempheadert.xhtml"/>
+    <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
-<h:body>
+<h:body onload="drawCanvas()" class="body">
+    <h:outputScript library="javascript" name="canvas.js"></h:outputScript>
     <ui:include src="templates/temphead.xhtml"/>
+    <canvas id="canvas"></canvas>
     <h:button class="but" outcome="indx" value="go to welcome page"/>
     <ui:include src="templates/mainform.xhtml"/>
+    <ui:include src="templates/table.xhtml"/>
 </h:body>
 
 </html>

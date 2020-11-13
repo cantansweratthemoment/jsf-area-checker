@@ -5,12 +5,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <ui:include src="templates/tempheadert.xhtml"/>
+    <h:outputStylesheet name = "main.css" library="css"/>
 </h:head>
-<h:body>
+<h:body class="body">
     <ui:include src="templates/temphead.xhtml"/>
     <div>
         <h:button id="but" outcome="main" value="go to main page"/>
