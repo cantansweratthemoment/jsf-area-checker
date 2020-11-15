@@ -4,7 +4,7 @@ import java.io.Serializable;
 public class Check implements Serializable {
     private double x;
     private double y;
-    private double r=1.25;
+    private double r=2;
     private boolean result;
 
     public Check() {

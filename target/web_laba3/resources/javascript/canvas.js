@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
         drawPoints();
     })
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("form:submit").addEventListener("click", (e) => {
+    setTimeout(drawPoints, 100);})
+});
 
 function drawCanvas() {//TODO У вас области неправильные, вкурсе?
     let canvas = document.getElementById("canvas"),

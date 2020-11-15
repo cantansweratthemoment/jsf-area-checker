@@ -19,12 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
         drawPoints();
     })
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("form:submit").addEventListener("click", (e) => {
+        setTimeout(drawPoints, 100);
+    })
+});
 
 function drawCanvas() {//TODO У вас области неправильные, вкурсе?
+    let rr = document.getElementById("form:r_chooser");
+    let r = rr.value;
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d");
     canvas.width = 500;
     canvas.height = 500;
+    context.clearRect(0, 0, 500, 500);
     context.fillStyle = "E8D7FF";
     context.fillRect(150, 250, 100, 200);
     context.beginPath();
