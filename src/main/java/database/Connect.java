@@ -13,15 +13,15 @@ public class Connect {
     protected void setConnection(){
         try {
             InitialContext initialContext = new InitialContext();
-            this.dataSource = (DataSource) initialContext.lookup("");
+            this.dataSource = (DataSource) initialContext.lookup("java:jboss/lab3DS");
             if(dataSource != null){
                 this.connection = dataSource.getConnection();
             }
         } catch (SQLException sqlException){
-            //ignored
+            sqlException.printStackTrace();
         }
         catch (NamingException namingException){
-            //ignored
+            namingException.printStackTrace();
         }
     }
 

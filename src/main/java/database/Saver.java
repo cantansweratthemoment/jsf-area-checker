@@ -15,9 +15,10 @@ public class Saver {
         init();
         try {
             Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE TABLE results(float x, float y, float r, boolean bool)");
+            statement.executeUpdate("CREATE TABLE results(x float, y float , r float)");
+            statement.close();
         }catch (SQLException sqlException){
-            //ignored
+            sqlException.printStackTrace();
         }
     }
     
@@ -26,14 +27,15 @@ public class Saver {
             if(connection == null){
                 init();
             }
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO results(x,y,r,bool) values(?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO results(x,y,r) values(?, ?, ?)");
             statement.setDouble(1, x);
             statement.setDouble(2, y);
             statement.setDouble(3, r);
-            statement.setBoolean(4, result);
+            //statement.setBoolean(4, result);
             statement.executeUpdate();
+            statement.close();
         }catch (SQLException sqlException){
-            //ignored
+            sqlException.printStackTrace();
         }
     }
 
