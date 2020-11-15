@@ -32,11 +32,17 @@
             <h:message id="messageY" for="y_chooser"/>
             <p>R=</p>
             <h:panelGrid columns="1" style="margin-bottom: 10px">
-                <p:inputText id="r_chooser" value="#{mainFormBean.newCheck.r}" onchange="changeR()"/>
-                <p:slider for="r_chooser" minValue="1.25" maxValue="3.75" step="0.25"/>
+                <p:inputText id="r_chooser" value="#{mainFormBean.newCheck.r}" onchange="changeR()"
+                             converterMessage="R должен быть числом, лежащим в промежутке (1; 4)!"
+                             validatorMessage="R должен лежать в промежутке(1; 4)!">
+                    <f:validator
+                            validatorId="validateR"/>
+                    <f:ajax event="change" render="messageR"/></p:inputText>
+                <h:message id="messageR" for="r_chooser"/>
+                <p:slider for="r_chooser" minValue="1.25" maxValue="3.75" step="0.25" onSlideEnd="changeR()"/>
             </h:panelGrid>
-            <p:commandButton id="submit" action="#{mainFormBean.submit()}"  value="submit"
-                             update="resultTable" onclick="drawPoints()"/>
+            <p:commandButton id="submit" action="#{mainFormBean.submit()}" value="submit"
+                             update="resultTable"/>
         </h:form>
     </div>
 </h:body>

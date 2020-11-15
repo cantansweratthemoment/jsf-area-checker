@@ -21,27 +21,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("form:submit").addEventListener("click", (e) => {
-        setTimeout(drawPoints, 100);
+        setTimeout(drawCanvas, 100);
+    })
+});
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("form:r_chooser").addEventListener("change", (e) => {
+        setTimeout(drawCanvas, 100);
     })
 });
 
-function drawCanvas() {//TODO У вас области неправильные, вкурсе?
+function drawCanvas() {
     let rr = document.getElementById("form:r_chooser");
     let r = rr.value;
+    let r_text = r + "";
+    let rhalf_text = r / 2 + "";
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d");
     canvas.width = 500;
     canvas.height = 500;
     context.clearRect(0, 0, 500, 500);
     context.fillStyle = "E8D7FF";
-    context.fillRect(150, 250, 100, 200);
+    context.fillRect(50, 250, 200, 200);
     context.beginPath();
     context.moveTo(250, 250);
-    context.lineTo(450, 250);
-    context.lineTo(250, 450);
+    context.lineTo(350, 250);
+    context.lineTo(250, 350);
     context.fill();
     context.moveTo(250, 250);
-    context.arc(250, 250, 200, Math.PI, Math.PI * 3 / 2);
+    context.arc(250, 250, 100, Math.PI, Math.PI * 3 / 2);
     context.fill();
     context.beginPath();
     context.strokeStyle = "#FF47A0";
@@ -55,23 +62,25 @@ function drawCanvas() {//TODO У вас области неправильные,
     context.moveTo(250, 500);
     context.lineTo(250, 0);
     context.stroke();
-    context.strokeText("R/2", 350, 250);
-    context.strokeText("R", 450, 250);
-    context.strokeText("R/2", 250, 350);
-    context.strokeText("R", 250, 450);
-    context.strokeText("R/2", 150, 250);
-    context.strokeText("R/2", 250, 150);
-    context.strokeText("R", 250, 50);
-    context.strokeText("R/2", 350, 250);
-    context.strokeText("R", 50, 250);
+    context.strokeText(rhalf_text, 350, 250);
+    context.strokeText(r_text, 450, 250);
+    context.strokeText(rhalf_text, 250, 350);
+    context.strokeText(r_text, 250, 450);
+    context.strokeText(rhalf_text, 150, 250);
+    context.strokeText(rhalf_text, 250, 150);
+    context.strokeText(r_text, 250, 50);
+    context.strokeText(rhalf_text, 350, 250);
+    context.strokeText(r_text, 50, 250);
     context.strokeText("Y", 250, 10);
     context.strokeText("X", 490, 250);
     drawPoints();
 }
 
 function drawPoint(x, y, r, result) {
-    let finalX = x / r * 400 / 2 + 250;
-    let finalY = y / r * (-400) / 2 + 250;
+    let rr = document.getElementById("form:r_chooser");
+    let rValue = rr.value;
+    let finalX = 250 + x * 200 / rValue;
+    let finalY = 250 - y * 200 / rValue;
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d");
     if (result === "false") {
@@ -86,7 +95,7 @@ function drawPoint(x, y, r, result) {
     context.closePath();
 }
 
-function drawPoints() {//TODO ну перерисовка от радиуса все дела
+function drawPoints() {
     let coordinates = Array.prototype.slice.call(document.getElementById("resultTable").getElementsByTagName("td"));
     for (let i = 0; i < coordinates.length; i = i + 4) {
         drawPoint(Number(coordinates[i].innerHTML),
@@ -96,5 +105,5 @@ function drawPoints() {//TODO ну перерисовка от радиуса в
 }
 
 function changeR() {
-
+    drawCanvas();
 }

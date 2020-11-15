@@ -1,3 +1,5 @@
+package validators;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -6,7 +8,7 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
 @FacesValidator("validateY")
-public class FormValidator implements Validator {
+public class YValidator implements Validator {
     private static final double min = -5;
     private static final double max = 3;
 
