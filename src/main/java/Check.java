@@ -1,9 +1,10 @@
+import javax.faces.validator.FacesValidator;
 import java.io.Serializable;
 
 public class Check implements Serializable {
     private double x;
     private double y;
-    private double r;
+    private double r=1.25;
     private boolean result;
 
     public Check() {
@@ -58,9 +59,5 @@ public class Check implements Serializable {
         this.setResult(((x >= -r / 2) && (x <= 0) && (y >= 0) && (y <= r / 2) && (x * x + y * y <= r / 2 * r / 2)) ||
                 ((x >= -r) && (x <= 0) && (y >= -r) && (y <= 0)) ||
                 ((x >= 0) && (x <= r / 2) && (y >= -r / 2) && (y <= 0) && (y >= x - r / 2)));
-    }
-
-    public void validate() {
-        //TODO
     }
 }

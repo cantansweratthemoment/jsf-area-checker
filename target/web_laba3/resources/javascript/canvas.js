@@ -1,39 +1,26 @@
 const canvas = document.getElementById('canvas');
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("canvas").addEventListener("click", (e) => {
-        //let rr = document.getElementById("select");
-        // let r = rr.value;
-        let r = 2;//TODO это убрать
+        let rr = document.getElementById("form:r_chooser");
+        let r = rr.value;
         let maslo = document.getElementById('canvas');
         let event_x = e.pageX - maslo.offsetLeft;
         let event_y = e.pageY - maslo.offsetTop;
-        let x = (event_x-250) * r / 200;
-        let y = (250-event_y) * r / 200;
-        // post('controllerServlet', {X_f: x, Y_f: y, R_f: r});
+        let x = (event_x - 250) * r / 200;
+        let y = (250 - event_y) * r / 200;
+        let submitX = document.getElementById("hiddenform:x_hidden_chooser");
+        let submitY = document.getElementById("hiddenform:y_hidden_chooser");
+        let submitR = document.getElementById("hiddenform:r_hidden_chooser");
+        submitX.value = x;
+        submitY.value = y;
+        submitR.value = r;
+        let hiddenSubmit = document.getElementById("hiddenform:hiddensubmit");
+        hiddenSubmit.click();
         drawPoints();
-        drawPoint(x, y, r, true);//TODO это тоже убрать
     })
 });
 
-function post(path, params, method = 'post') {
-    const form = document.createElement('form');
-    form.method = method;
-    form.action = path;
-    for (const key in params) {
-        if (params.hasOwnProperty(key)) {
-            const hiddenField = document.createElement('input');
-            hiddenField.type = 'hidden';
-            hiddenField.name = key;
-            hiddenField.value = params[key];
-
-            form.appendChild(hiddenField);
-        }
-    }
-    document.body.appendChild(form);
-    form.submit();
-}
-
-function drawCanvas() {
+function drawCanvas() {//TODO У вас области неправильные, вкурсе?
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d");
     canvas.width = 500;
@@ -75,8 +62,8 @@ function drawCanvas() {
 }
 
 function drawPoint(x, y, r, result) {
-    let finalX=x / r * 400 / 2 + 250;
-    let finalY=y / r * (-400) / 2 + 250;
+    let finalX = x / r * 400 / 2 + 250;
+    let finalY = y / r * (-400) / 2 + 250;
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d");
     if (result === "false") {
@@ -98,4 +85,8 @@ function drawPoints() {//TODO ну перерисовка от радиуса в
             Number(coordinates[i + 1].innerHTML),
             Number(coordinates[i + 2].innerHTML), coordinates[i + 3].innerHTML);
     }
+}
+
+function changeR() {
+
 }

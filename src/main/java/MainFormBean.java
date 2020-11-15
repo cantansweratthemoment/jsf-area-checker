@@ -37,8 +37,13 @@ public class MainFormBean implements Serializable {
 
     public void submit() {
         newCheck.checkHit();
-        Check checkForTheList = new Check(newCheck.getX(), newCheck.getY(), newCheck.getR(), newCheck.isResult());
-        this.checkList.add(checkForTheList);
-        System.out.println(this.checkList.getChecks().toString());
+        if (validate(newCheck)) {
+            Check checkForTheList = new Check(newCheck.getX(), newCheck.getY(), newCheck.getR(), newCheck.isResult());//ЫЫЫЫЫ
+            this.checkList.add(checkForTheList);
+        }
+    }
+
+    public boolean validate(Check check) {
+        return (((check.getX() >= -5) && (check.getX() <= 3)) && (check.getY() > -5 && (check.getY() < 3)) && ((check.getR() > 1) && (check.getR() < 4)));
     }
 }
