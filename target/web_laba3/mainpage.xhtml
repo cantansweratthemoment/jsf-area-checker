@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: mike
-  Date: 08.11.2020
-  Time: 19:34
--->
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,19 +6,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-
 <h:head>
     <ui:include src="templates/tempheadert.xhtml"/>
-    <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body onload="drawCanvas()" class="body">
+    <h:outputStylesheet library="css" name="form.css"/>
     <h:outputScript library="javascript" name="canvas.js"></h:outputScript>
     <ui:include src="templates/temphead.xhtml"/>
     <canvas id="canvas"></canvas>
-    <h:button class="but" outcome="indx" value="go to welcome page"/>
     <ui:include src="templates/mainform.xhtml"/>
     <ui:include src="templates/table.xhtml"/>
     <ui:include src="templates/hiddenform.xhtml"/>
+    <h:button class="but" outcome="indx" value="go to welcome page"/>
 </h:body>
 
 </html>

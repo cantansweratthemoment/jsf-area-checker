@@ -1,0 +1,22 @@
+#canvas{
+    position: relative;
+    top: 0px;
+    left: 20px;
+}
+#form{
+    position: relative;
+    bottom: 500px;
+}
+#form{
+    position: relative;
+    bottom: 400px;
+    left: 700px;
+}
+#resultTable{
+    position: relative;
+    bottom: 300px;
+}
+.but{
+    position: relative;
+    bottom: 300px;
+}

@@ -1,5 +1,50 @@
-.body{
+.body {
     background-image: url(#{request.contextPath}/resources/images/wallpaper.JPEG);
     background-size: 45%;
     background-repeat: repeat;
+}
+
+#date {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#canv {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#authors {
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 250%;
+    text-decoration: underline overline;
+    color: #A35CFF;
+    background-color: #F3FFE1;
+}
+
+.but {
+    color: black;
+    text-align: center;
+    padding: 1% 2%;
+    margin: 2%;
+    font-size: 150%;
+    background: white;
+    border: solid #FFD7D5;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.but:hover {
+    background: #FFD7D5;
+}
+.ui-clock {
+    background: none;
+    color: black;
+    font-family: monospace;
+    background-color: white;
+    border: solid #FFD7D5;
+    border-radius: 0;
+    text-shadow: none;
+    font-weight: 0;
 }

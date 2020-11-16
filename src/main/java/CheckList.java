@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckList implements Serializable {//TODO этот чел на время отсутсвия БД
+public class CheckList implements Serializable {//этот чел на время отсутсвия БД
     private List<Check> checks;
 
     public CheckList() {

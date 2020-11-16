@@ -13,16 +13,13 @@
 </h:head>
 <h:body class="body">
     <ui:include src="templates/temphead.xhtml"/>
-    <div>
-        <h:button id="but" outcome="main" value="go to main page"/>
-    </div>
     <div id="canv"></div>
     <div id="date">
         <p:clock mode="server" pattern="dd-MM-yyyy" syncInterval="11000"/>
     </div>
     <h:outputScript library="javascript" name="clock.js"/>
-    <!--<h:form id="mainForm" >
-
-    </h:form>-->
+    <div align="center">
+        <h:button id="but" class="but" outcome="main" value="go to main page"/>
+    </div>
 </h:body>
 </html>

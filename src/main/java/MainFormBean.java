@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 public class MainFormBean implements Serializable {
     private Check newCheck;
-    //private CheckList checkList;//TODO это поле придумано фашистами
+    //private CheckList checkList;
     private DataBaseWorker dataBaseWorker;
 
     public DataBaseWorker getDataBaseWorker() {

@@ -2,14 +2,12 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://java.sun.com/jsf/html" xml:lang="en" lang="en"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html">
 <body>
 <div>
     <p:dataTable id="resultTable" var="check" value="#{mainFormBean.dataBaseWorker.checks}"
                  style="width: 100%; border-width:4px; margin: 0 auto; border-color:#A35CFF; border-style:solid;">
-        <!--TODO Надо все стили бахнуть кссом кста а вы знали что в хтмл можно писать туду?-->
         <p:column headerText="X">
             <h:outputText value="#{check.x}"/>
         </p:column>

@@ -5,20 +5,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <ui:include src="templates/tempheadert.xhtml"/>
     <h:outputStylesheet name = "main.css" library="css"/>
 </h:head>
 <h:body class="body">
     <ui:include src="templates/temphead.xhtml"/>
-    <div>
-        <h:button id="but" outcome="main" value="go to main page"/>
+    <div id="canv"></div>
+    <div id="date">
+        <p:clock mode="server" pattern="dd-MM-yyyy" syncInterval="11000"/>
     </div>
-    <div id="canv" style="width: 200px; height: 200px; margin: 0 auto"></div>
     <h:outputScript library="javascript" name="clock.js"/>
-    <!--<h:form id="mainForm" >
-
-    </h:form>-->
+    <div align="center">
+        <h:button id="but" class="but" outcome="main" value="go to main page"/>
+    </div>
 </h:body>
 </html>
