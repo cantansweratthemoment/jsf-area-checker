@@ -32,15 +32,14 @@ public class DataBaseWorker implements Serializable { //мб checklist оста�
     public void getPoints(){ //должен достать точки при запуске приложения, если они есть
        try {
            Statement statement = connection.createStatement();
-           ResultSet resultSet = statement.executeQuery("SELECT FROM results");
+           ResultSet resultSet = statement.executeQuery("SELECT * FROM results");
            while (resultSet.next()){
                Check check = new Check();
                check.setX(resultSet.getDouble(1));
                check.setY(resultSet.getDouble(2));
                check.setR(resultSet.getDouble(3));
-             //  check.setResult(resultSet.getBoolean(4));
+               check.setResult(resultSet.getBoolean(4));
                this.checks.add(check);
-               statement.close();
            }
        } catch (SQLException e){
            e.printStackTrace();

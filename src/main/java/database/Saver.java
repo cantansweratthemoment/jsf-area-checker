@@ -15,23 +15,23 @@ public class Saver {
         init();
         try {
             Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE TABLE results(x float, y float , r float)");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS results(x float, y float , r float, res boolean)");
             statement.close();
         }catch (SQLException sqlException){
-            sqlException.printStackTrace();
+           // sqlException.printStackTrace(); ignored
         }
     }
     
     public void addPoint(double x, double y, double r, boolean result){
         try {
             if(connection == null){
-                init();
+                createTable();
             }
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO results(x,y,r) values(?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO results(x,y,r,res) values(?, ?, ?, ?)");
             statement.setDouble(1, x);
             statement.setDouble(2, y);
             statement.setDouble(3, r);
-            //statement.setBoolean(4, result);
+            statement.setBoolean(4, result);
             statement.executeUpdate();
             statement.close();
         }catch (SQLException sqlException){
