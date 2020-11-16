@@ -1,4 +1,4 @@
-document.getElementById('canv').innerHTML = '<canvas id = "canvas"></canvas>'
+document.getElementById('canv').innerHTML = '<canvas id = "canvas" height="300px" width="300px"></canvas>'
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
