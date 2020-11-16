@@ -3,3 +3,12 @@
     background-size: 45%;
     background-repeat: repeat;
 }
+
+#date{
+    text-align: center;
+    margin: 0 auto;
+}
+#canv{
+    text-align: center;
+    margin: 0 auto;
+}
